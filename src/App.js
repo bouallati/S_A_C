@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [isRed, setIsRed] = useState(false);
+  const handleIncrement = () => {
+    setCount(count + 1);
+    setIsRed(!isRed);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <button className='btn' onClick={handleIncrement}>Increment</button>
+      <h1>{count}</h1>
+      <h1 className={isRed ? 'red' : null}>Change My Color!</h1>
     </div>
   );
 }
